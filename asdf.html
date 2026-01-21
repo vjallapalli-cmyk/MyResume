@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jallapalli Venirugved - Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-primary {
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid var(--accent-color);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(135deg, var(--surface-color) 0%, var(--secondary-surface) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-frame:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .photo-icon {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.6;
+    }
+
+    .photo-text {
+      font-size: 0.75rem;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    #photoInput {
+      display: none;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--background) 0%, var(--surface-color) 100%);
+    }
+
+    .skill-badge {
+      transition: all 0.3s ease;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-card {
+      background: var(--surface-color);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .timeline-dot::after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 40px;
+      background: var(--border-color);
+    }
+
+    @media print {
+      body {
+        background: white !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    :root {
+      --background: #fafbfc;
+      --surface-color: #ffffff;
+      --secondary-surface: #f0f4f8;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --accent-color: #8b5cf6;
+      --border-color: #e2e8f0;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-primary gradient-bg">
+  <div class="resume-container h-full overflow-auto w-full">
+   <main class="max-w-6xl mx-auto px-6 py-12"><!-- Hero Section with Photo -->
+    <section class="text-center mb-16">
+     <div class="flex flex-col items-center mb-6">
+      <div class="photo-frame mb-6" id="photoFrame">
+       <div class="photo-placeholder" id="photoPlaceholder" style="display: none;">
+        <div class="photo-icon">
+         👤
+        </div>
+        <div class="photo-text">
+         Click to add your photo
+        </div>
+       </div><img id="photoPreview" style="display: block;" src="profile_enhanced.jpg" alt="Profile Photo">
+      </div><input type="file" id="photoInput" accept="image/*">
+     </div>
+     <h1 class="text-5xl md:text-6xl font-bold mb-4" style="color: var(--text-primary);" id="header-name">Jallapalli Venirugved</h1>
+     <p class="text-xl md:text-2xl mb-4 font-medium" style="color: var(--accent-color);" id="header-tagline">Aspiring Prompt Engineer | AI &amp; ML Enthusiast</p>
+     <div class="flex flex-wrap justify-center gap-3 text-sm font-mono mb-6"><span class="px-4 py-2 rounded-full" style="background: var(--secondary-surface); color: var(--text-secondary);"> 📧 <span id="quick-email">vjallapalli@gmail.com</span> </span> <span class="px-4 py-2 rounded-full" style="background: var(--secondary-surface); color: var(--text-secondary);"> 📍 <span id="quick-location">Miryalaguda, Nalgonda, Telangana</span> </span> <span class="px-4 py-2 rounded-full" style="background: var(--secondary-surface); color: var(--text-secondary);"> 🎂 Age: 19 </span>
+     </div>
+    </section><!-- Professional Summary -->
+    <section class="mb-12">
+     <div class="section-card">
+      <h2 class="text-3xl font-bold mb-6 flex items-center gap-3" style="color: var(--accent-color);"><span>💼</span> About Me</h2>
+      <p class="text-lg leading-relaxed" style="color: var(--text-secondary);" id="summary-text">Passionate B.Tech student specializing in Artificial Intelligence and Machine Learning with a keen interest in Prompt Engineering and Natural Language Processing. Dedicated to exploring the intersection of human language and AI, focusing on creating effective prompts and optimizing AI model interactions. Eager to contribute to innovative AI projects and continuously learning cutting-edge technologies in the rapidly evolving field of generative AI and large language models.</p>
+     </div>
+    </section><!-- Education -->
+    <section class="mb-12">
+     <h2 class="text-3xl font-bold mb-8 flex items-center gap-3" style="color: var(--accent-color);"><span>🎓</span> Education</h2>
+     <div class="space-y-6"><!-- B.Tech -->
+      <div class="section-card">
+       <div class="flex items-start gap-4">
+        <div class="timeline-dot mt-2"></div>
+        <div class="flex-1">
+         <div class="flex flex-wrap justify-between items-start mb-2">
+          <div>
+           <h3 class="text-xl font-semibold" style="color: var(--text-primary);" id="edu-degree">Bachelor of Technology (B.Tech) - Computer Science &amp; Engineering (AI &amp; ML)</h3>
+           <p class="text-lg mt-1" style="color: var(--text-secondary);" id="edu-college">JNTU College of Engineering, Manthani</p>
+          </div><span class="font-mono text-sm px-4 py-1 rounded-full font-semibold" style="background: var(--accent-color); color: white;"> 2023 - 2027 </span>
+         </div>
+         <p class="mt-3 text-sm" style="color: var(--text-secondary);"><strong>Current Status:</strong> Third Year Student | <strong>Specialization:</strong> Artificial Intelligence &amp; Machine Learning</p>
+         <p class="mt-2 text-sm" style="color: var(--text-secondary);"><strong>Key Coursework:</strong> Machine Learning, Deep Learning, Natural Language Processing, Data Structures &amp; Algorithms, Neural Networks, Computer Vision, Database Management Systems, Python Programming, Statistical Methods</p>
+        </div>
+       </div>
+      </div><!-- Intermediate -->
+      <div class="section-card">
+       <div class="flex items-start gap-4">
+        <div class="timeline-dot mt-2"></div>
+        <div class="flex-1">
+         <div class="flex flex-wrap justify-between items-start mb-2">
+          <div>
+           <h3 class="text-xl font-semibold" style="color: var(--text-primary);">Intermediate (Class 11th &amp; 12th) - MPC</h3>
+           <p class="text-lg mt-1" style="color: var(--text-secondary);" id="edu-intermediate">KLN Junior College, Miryalaguda</p>
+          </div><span class="font-mono text-sm px-4 py-1 rounded-full font-semibold" style="background: var(--accent-color); color: white;"> 2021 - 2023 </span>
+         </div>
+         <p class="mt-3 text-sm" style="color: var(--text-secondary);"><strong>Stream:</strong> Mathematics, Physics, Chemistry | Completed with strong foundation in analytical and problem-solving skills</p>
+        </div>
+       </div>
+      </div><!-- School -->
+      <div class="section-card">
+       <div class="flex items-start gap-4">
+        <div class="w-3 h-3 rounded-full mt-2" style="background: var(--accent-color);"></div>
+        <div class="flex-1">
+         <div class="flex flex-wrap justify-between items-start mb-2">
+          <div>
+           <h3 class="text-xl font-semibold" style="color: var(--text-primary);">Secondary School Education (10th Class)</h3>
+           <p class="text-lg mt-1" style="color: var(--text-secondary);" id="edu-school">Abhyas Techno School, Miryalaguda</p>
+          </div><span class="font-mono text-sm px-4 py-1 rounded-full font-semibold" style="background: var(--accent-color); color: white;"> 2021 </span>
+         </div>
+         <p class="mt-3 text-sm" style="color: var(--text-secondary);">Completed foundational education with excellent academic performance and developed strong interest in technology and computers</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Technical Skills -->
+    <section class="mb-12">
+     <h2 class="text-3xl font-bold mb-8 flex items-center gap-3" style="color: var(--accent-color);"><span>⚡</span> Technical Skills</h2>
+     <div class="grid md:grid-cols-2 gap-6"><!-- AI & ML Skills -->
+      <div class="section-card">
+       <h3 class="text-xl font-semibold mb-4 flex items-center gap-2" style="color: var(--text-primary);"><span>🤖</span> AI &amp; Machine Learning</h3>
+       <div class="flex flex-wrap gap-2"><span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Prompt Engineering </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Large Language Models </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Natural Language Processing </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Machine Learning Algorithms </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Deep Learning Basics </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Neural Networks </span>
+       </div>
+       <p class="mt-4 text-sm" style="color: var(--text-secondary);">Specialized in crafting effective prompts for AI models like GPT, Claude, and other LLMs. Experienced in prompt optimization, chain-of-thought reasoning, and few-shot learning techniques.</p>
+      </div><!-- Programming Languages -->
+      <div class="section-card">
+       <h3 class="text-xl font-semibold mb-4 flex items-center gap-2" style="color: var(--text-primary);"><span>💻</span> Programming Languages</h3>
+       <div class="flex flex-wrap gap-2"><span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Python </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Java </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> C/C++ </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> JavaScript </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> SQL </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> HTML/CSS </span>
+       </div>
+       <p class="mt-4 text-sm" style="color: var(--text-secondary);">Strong foundation in Python for AI/ML development, data analysis, and automation. Proficient in object-oriented programming and algorithmic problem-solving across multiple languages.</p>
+      </div><!-- AI Tools & Frameworks -->
+      <div class="section-card">
+       <h3 class="text-xl font-semibold mb-4 flex items-center gap-2" style="color: var(--text-primary);"><span>🛠️</span> AI Tools &amp; Frameworks</h3>
+       <div class="flex flex-wrap gap-2"><span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> TensorFlow </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> PyTorch </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Scikit-learn </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Pandas &amp; NumPy </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> OpenAI API </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Hugging Face </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Jupyter Notebook </span>
+       </div>
+       <p class="mt-4 text-sm" style="color: var(--text-secondary);">Hands-on experience with modern AI frameworks and libraries. Familiar with transformer models, API integration, and model fine-tuning techniques.</p>
+      </div><!-- Other Technical Skills -->
+      <div class="section-card">
+       <h3 class="text-xl font-semibold mb-4 flex items-center gap-2" style="color: var(--text-primary);"><span>🔧</span> Development Tools</h3>
+       <div class="flex flex-wrap gap-2"><span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Git &amp; GitHub </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> VS Code </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Google Colab </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Anaconda </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> Linux/Unix </span> <span class="skill-badge px-4 py-2 rounded-lg text-sm font-medium" style="background: var(--secondary-surface); color: var(--text-primary);"> MySQL/MongoDB </span>
+       </div>
+       <p class="mt-4 text-sm" style="color: var(--text-secondary);">Proficient with version control, cloud-based development environments, and essential tools for AI/ML workflows and collaborative coding.</p>
+      </div>
+     </div><!-- Soft Skills -->
+     <div class="section-card mt-6">
+      <h3 class="text-xl font-semibold mb-4 flex items-center gap-2" style="color: var(--text-primary);"><span>🌟</span> Professional Competencies</h3>
+      <div class="grid md:grid-cols-3 gap-4">
+       <div class="flex items-start gap-3"><span style="color: var(--accent-color);">✦</span>
+        <div><strong>Problem Solving:</strong>
+         <p class="text-sm mt-1" style="color: var(--text-secondary);">Analytical thinking and creative approach to complex technical challenges</p>
+        </div>
+       </div>
+       <div class="flex items-start gap-3"><span style="color: var(--accent-color);">✦</span>
+        <div><strong>Research &amp; Learning:</strong>
+         <p class="text-sm mt-1" style="color: var(--text-secondary);">Self-motivated learner staying updated with latest AI advancements</p>
+        </div>
+       </div>
+       <div class="flex items-start gap-3"><span style="color: var(--accent-color);">✦</span>
+        <div><strong>Technical Communication:</strong>
+         <p class="text-sm mt-1" style="color: var(--text-secondary);">Ability to explain complex AI concepts clearly and document work effectively</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Family Background -->
+    <section class="mb-12">
+     <h2 class="text-3xl font-bold mb-8 flex items-center gap-3" style="color: var(--accent-color);"><span>👨‍👩‍👦</span> Family Background</h2>
+     <div class="grid md:grid-cols-2 gap-6">
+      <div class="section-card">
+       <div class="flex items-center gap-3 mb-4"><span class="text-3xl">👨</span>
+        <h3 class="text-xl font-semibold" style="color: var(--text-primary);">Father's Details</h3>
+       </div>
+       <div class="space-y-2">
+        <p><strong>Name:</strong> <span id="father-name">Jallapalli Veeraiah</span></p>
+        <p><strong>Occupation:</strong> <span id="father-occupation">Teacher</span></p>
+        <p class="text-sm mt-3 pt-3" style="color: var(--text-secondary); border-top: 1px solid var(--border-color);">Dedicated educator who has been instrumental in fostering a love for learning and academic excellence. His commitment to education has been a constant source of inspiration and support throughout my academic journey.</p>
+       </div>
+      </div>
+      <div class="section-card">
+       <div class="flex items-center gap-3 mb-4"><span class="text-3xl">👩</span>
+        <h3 class="text-xl font-semibold" style="color: var(--text-primary);">Mother's Details</h3>
+       </div>
+       <div class="space-y-2">
+        <p><strong>Name:</strong> <span id="mother-name">Jallapalli Shailaja</span></p>
+        <p><strong>Occupation:</strong> <span id="mother-occupation">Homemaker</span></p>
+        <p class="text-sm mt-3 pt-3" style="color: var(--text-secondary); border-top: 1px solid var(--border-color);">Pillar of strength and support in the family, creating a nurturing environment that enabled focus on academics and personal growth. Her unwavering encouragement has been invaluable in pursuing higher education and career aspirations.</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Contact Information -->
+    <section class="mb-12">
+     <h2 class="text-3xl font-bold mb-8 flex items-center gap-3" style="color: var(--accent-color);"><span>📞</span> Contact Information</h2>
+     <div class="section-card">
+      <div class="grid md:grid-cols-2 gap-8"><!-- Email -->
+       <div class="flex items-start gap-4">
+        <div class="text-3xl" style="color: var(--accent-color);">
+         ✉️
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg mb-2" style="color: var(--text-primary);">Email Address</h3>
+         <p class="font-mono text-sm mb-2" id="contact-email">vjallapalli@gmail.com</p>
+         <p class="text-xs" style="color: var(--text-secondary);">Primary method for professional communication and inquiries</p>
+        </div>
+       </div><!-- Location -->
+       <div class="flex items-start gap-4">
+        <div class="text-3xl" style="color: var(--accent-color);">
+         📍
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg mb-2" style="color: var(--text-primary);">Location</h3>
+         <p class="text-sm mb-2" id="contact-location">Miryalaguda, Nalgonda, Telangana</p>
+         <p class="text-xs" style="color: var(--text-secondary);">Open to remote opportunities and willing to relocate for the right role</p>
+        </div>
+       </div><!-- LinkedIn -->
+       <div class="flex items-start gap-4">
+        <div class="text-3xl" style="color: var(--accent-color);">
+         💼
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg mb-2" style="color: var(--text-primary);">LinkedIn Profile</h3>
+         <p class="text-sm mb-2 break-all">linkedin.com/in/<span id="contact-linkedin">venirugved-jallapalli</span></p>
+         <p class="text-xs" style="color: var(--text-secondary);">Connect for professional networking and career opportunities</p>
+        </div>
+       </div><!-- GitHub -->
+       <div class="flex items-start gap-4">
+        <div class="text-3xl" style="color: var(--accent-color);">
+         💻
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg mb-2" style="color: var(--text-primary);">GitHub Profile</h3>
+         <p class="text-sm mb-2 break-all">github.com/<span id="contact-github">venirugved-jallapalli</span></p>
+         <p class="text-xs" style="color: var(--text-secondary);">View projects, code repositories, and contributions to open source</p>
+        </div>
+       </div>
+      </div><!-- Call to Action -->
+      <div class="mt-8 p-6 rounded-lg text-center" style="background: linear-gradient(135deg, var(--accent-color) 0%, #6d28d9 100%); color: white;">
+       <p class="text-lg font-semibold mb-2">Open to Internship &amp; Career Opportunities</p>
+       <p class="text-sm opacity-90">Actively seeking internships in AI/ML, Prompt Engineering, and related fields. Available for immediate start and eager to contribute to innovative projects.</p>
+      </div>
+     </div>
+    </section><!-- Declaration -->
+    <section class="mb-8">
+     <div class="section-card">
+      <h2 class="text-2xl font-bold mb-4 flex items-center gap-3" style="color: var(--accent-color);"><span>📝</span> Declaration</h2>
+      <p class="mb-4" style="color: var(--text-secondary);">I hereby declare that all the information provided in this resume is true, accurate, and complete to the best of my knowledge and belief. I understand that any false or misleading information may result in disqualification from consideration for employment or academic opportunities.</p>
+      <div class="mt-6 pt-4" style="border-top: 1px solid var(--border-color);">
+       <p class="font-semibold text-lg" style="color: var(--text-primary);" id="declaration-name">Jallapalli Venirugved</p>
+       <p class="text-sm mt-1" style="color: var(--text-secondary);">Date: <span id="current-date"></span> | Place: Miryalaguda, Telangana</p>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="py-8 text-center" style="background: var(--surface-color); border-top: 2px solid var(--border-color);">
+    <p class="font-semibold text-lg mb-2" style="color: var(--text-primary);"><span id="footer-name">Jallapalli Venirugved</span></p>
+    <p class="text-sm" style="color: var(--text-secondary);">Professional Resume | Last Updated: <span id="footer-date"></span></p>
+    <p class="text-xs mt-2" style="color: var(--text-secondary);">This resume is ATS-friendly and optimized for both digital viewing and print formats</p>
+   </footer>
+   <a href="Jallapalli_Venirugved_Resume.pdf" download="Jallapalli_Venirugved_Resume.pdf" target="_blank" style="position: absolute; left: 10px; top: 10px; padding: 10px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; border-radius: 5px;">Download Resume</a>
+  </div>
+  <script>
+    const defaultConfig = {
+      full_name: 'Jallapalli Venirugved',
+      tagline: 'Aspiring Prompt Engineer | AI & ML Enthusiast',
+      professional_summary: 'Passionate B.Tech student specializing in Artificial Intelligence and Machine Learning with a keen interest in Prompt Engineering and Natural Language Processing. Dedicated to exploring the intersection of human language and AI, focusing on creating effective prompts and optimizing AI model interactions. Eager to contribute to innovative AI projects and continuously learning cutting-edge technologies in the rapidly evolving field of generative AI and large language models.',
+      degree: 'Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)',
+      college_name: 'JNTU College of Engineering, Manthani',
+      intermediate: 'KLN Junior College, Miryalaguda',
+      school: 'Abhyas Techno School, Miryalaguda',
+      father_name: 'Jallapalli Veeraiah',
+      father_occupation: 'Teacher',
+      mother_name: 'Jallapalli Shailaja',
+      mother_occupation: 'Homemaker',
+      email: 'vjallapalli@gmail.com',
+      location: 'Miryalaguda, Nalgonda, Telangana',
+      linkedin: 'venirugved-jallapalli',
+      github: 'venirugved-jallapalli',
+      background_color: '#fafbfc',
+      surface_color: '#ffffff',
+      text_primary: '#0f172a',
+      text_secondary: '#475569',
+      accent_color: '#8b5cf6',
+      font_family: 'Sora',
+      font_size: 16
+    };
+
+    // Photo upload functionality
+    const photoInput = document.getElementById('photoInput');
+    const photoPreview = document.getElementById('photoPreview');
+    const photoPlaceholder = document.getElementById('photoPlaceholder');
+
+    photoInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          photoPreview.src = event.target.result;
+          photoPreview.style.display = 'block';
+          photoPlaceholder.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Set current date
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('current-date').textContent = formattedDate;
+    document.getElementById('footer-date').textContent = formattedDate;
+
+    async function onConfigChange(config) {
+      const fullName = config.full_name || defaultConfig.full_name;
+      
+      // Update all text elements
+      document.getElementById('header-name').textContent = fullName;
+      document.getElementById('header-tagline').textContent = config.tagline || defaultConfig.tagline;
+      document.getElementById('quick-email').textContent = config.email || defaultConfig.email;
+      document.getElementById('quick-location').textContent = config.location || defaultConfig.location;
+      
+      document.getElementById('summary-text').textContent = config.professional_summary || defaultConfig.professional_summary;
+      
+      document.getElementById('edu-degree').textContent = config.degree || defaultConfig.degree;
+      document.getElementById('edu-college').textContent = config.college_name || defaultConfig.college_name;
+      document.getElementById('edu-intermediate').textContent = config.intermediate || defaultConfig.intermediate;
+      document.getElementById('edu-school').textContent = config.school || defaultConfig.school;
+      
+      document.getElementById('father-name').textContent = config.father_name || defaultConfig.father_name;
+      document.getElementById('father-occupation').textContent = config.father_occupation || defaultConfig.father_occupation;
+      document.getElementById('mother-name').textContent = config.mother_name || defaultConfig.mother_name;
+      document.getElementById('mother-occupation').textContent = config.mother_occupation || defaultConfig.mother_occupation;
+      
+      document.getElementById('contact-email').textContent = config.email || defaultConfig.email;
+      document.getElementById('contact-location').textContent = config.location || defaultConfig.location;
+      document.getElementById('contact-linkedin').textContent = config.linkedin || defaultConfig.linkedin;
+      document.getElementById('contact-github').textContent = config.github || defaultConfig.github;
+      
+      document.getElementById('declaration-name').textContent = fullName;
+      document.getElementById('footer-name').textContent = fullName;
+
+      // Update colors
+      const root = document.documentElement;
+      root.style.setProperty('--background', config.background_color || defaultConfig.background_color);
+      root.style.setProperty('--surface-color', config.surface_color || defaultConfig.surface_color);
+      root.style.setProperty('--text-primary', config.text_primary || defaultConfig.text_primary);
+      root.style.setProperty('--text-secondary', config.text_secondary || defaultConfig.text_secondary);
+      root.style.setProperty('--accent-color', config.accent_color || defaultConfig.accent_color);
+
+      // Update font
+      const customFont = config.font_family || defaultConfig.font_family;
+      document.body.style.fontFamily = `${customFont}, 'Sora', sans-serif`;
+
+      // Update font size
+      const baseSize = config.font_size || defaultConfig.font_size;
+      document.body.style.fontSize = `${baseSize}px`;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => { config.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); }
+          },
+          {
+            get: () => config.text_primary || defaultConfig.text_primary,
+            set: (value) => { config.text_primary = value; window.elementSdk.setConfig({ text_primary: value }); }
+          },
+          {
+            get: () => config.text_secondary || defaultConfig.text_secondary,
+            set: (value) => { config.text_secondary = value; window.elementSdk.setConfig({ text_secondary: value }); }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => { config.accent_color = value; window.elementSdk.setConfig({ accent_color: value }); }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => { config.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => { config.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['full_name', config.full_name || defaultConfig.full_name],
+        ['tagline', config.tagline || defaultConfig.tagline],
+        ['professional_summary', config.professional_summary || defaultConfig.professional_summary],
+        ['degree', config.degree || defaultConfig.degree],
+        ['college_name', config.college_name || defaultConfig.college_name],
+        ['intermediate', config.intermediate || defaultConfig.intermediate],
+        ['school', config.school || defaultConfig.school],
+        ['father_name', config.father_name || defaultConfig.father_name],
+        ['father_occupation', config.father_occupation || defaultConfig.father_occupation],
+        ['mother_name', config.mother_name || defaultConfig.mother_name],
+        ['mother_occupation', config.mother_occupation || defaultConfig.mother_occupation],
+        ['email', config.email || defaultConfig.email],
+        ['location', config.location || defaultConfig.location],
+        ['linkedin', config.linkedin || defaultConfig.linkedin],
+        ['github', config.github || defaultConfig.github]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c17ac8356bd7fd4',t:'MTc2OTAwNzU1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
